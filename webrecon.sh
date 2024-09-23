@@ -6,7 +6,7 @@ read dominio
 read world
   for palavra in $(cat $world);
 do 
-resposta=$(curl -s -o /dev/null -w "%{http_encode}" $dominio/$palavra/)
+resposta=$(curl -s -H "User-Agent: Maquininha malvada" -o /dev/null -w "%{http_encode}" $dominio/$palavra/)
   if [$resposta == 200]
 then
   echo "diretorio encontrado: $palavra"
